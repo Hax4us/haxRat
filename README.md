@@ -37,11 +37,9 @@ A cloud based remote android managment suite, powered by NodeJS
 3. Goto server directory `cd haxRat/server`
 4. Install all dependencies `npm install`
 
-5. In your browser navigate to `http://<SERVER IP>:22533` ( By default server will run on localhost and to make a client APP you can use [PORTMAP](https://portmap.io) to access APP on wide area network , check below for demo to setup haxRAT with PORTMAP.)
+5. In your browser navigate to `http://<SERVER IP>:22533` & Login with default username and password ( By default server will run on localhost and to make a client APP you can use [PORTMAP](https://portmap.io) to access APP on wide area network , check below for demo to setup haxRAT with PORTMAP.)
 
-
-## Notes
-When opening an issue, you **MUST** use the provided templates. Issues without this will not recieve support quickly and will be put to the bottom of the figurative pile.
+### For default PASSWORD [CLICK HERE](https://afly.pro/INTuM7)
 
 
 ## Thanks
