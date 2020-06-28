@@ -2,3 +2,5 @@
 /server/node_modules/
 /server/assets/webpublic/client_downloads/
 /server/clientData/
+/server/keystore
+/server/app/factory/decompiled/build/
