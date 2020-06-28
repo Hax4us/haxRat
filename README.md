@@ -29,17 +29,25 @@ A cloud based remote android managment suite, powered by NodeJS
 ## TODO
 - Call Blocker
 
-## Installation ( Only For TERMUX ) 
+## Installation
+### For TermuxBlack Users
+- `apt install haxrat`
+- Run server `haxrat`
+
+### For Termux Users
 1. Install NodeJs `apt install nodejs`
 
 2. Clone `git clone https://github.com/hax4us/haxRat.git`
 
 3. Goto server directory `cd haxRat/server`
+
 4. Install all dependencies `npm install`
 
 5. Make a separate directory where haxrat app will be save `mkdir ~/haxrat`
 
-5. In your browser navigate to `http://<SERVER IP>:22533` & Login with default username and password ( By default server will run on localhost and to make a client APP you can use [PORTMAP](https://portmap.io) to access APP on wide area network , check below for demo to setup haxRAT with PORTMAP.)
+6. Run server `node index.js`
+
+7. In your browser navigate to `http://<SERVER IP>:22533` & Login with default username and password ( By default server will run on localhost and to make a client APP you can use [PORTMAP](https://portmap.io) to access APP on wide area network , check below for demo to setup haxRAT with PORTMAP.)
 
 ### For default PASSWORD [CLICK HERE](https://afly.pro/INTuM7)
 
