@@ -6,6 +6,7 @@
 *  
 */
 
+console.log('Server Started! \nhttp://localhost:22533');
 
 const
     express = require('express'),
